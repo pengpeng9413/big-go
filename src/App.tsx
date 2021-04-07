@@ -18,7 +18,6 @@ class App extends React.Component<Props> {
     const { name } = this.props;
     return (
       <BrowserRouter>
-      <div>{name}</div>
        <Switch>
          <Route path="/">
           <Layout/>

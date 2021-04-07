@@ -7,7 +7,7 @@ Empty project.
 First install dependencies:
 
 ```sh
-npm install
+npm install / yarn
 ```
 
 To run in hot module reloading mode:
@@ -19,13 +19,7 @@ npm start
 To create a production build:
 
 ```sh
-npm run build-prod
-```
-
-To create a development build:
-
-```sh
-npm run build-dev
+npm run build
 ```
 
 ## Running

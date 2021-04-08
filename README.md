@@ -56,3 +56,7 @@ if we use only one ,we should write many `if else` according to the `process env
 ## 关于使用react-dnd 来完成组件拖拽
 1. 首先解释一下 react-dnd 的英文全称：Drag and Drop for React
 2. 这个开源组件可以为我们带来什么，解决什么问题?
+
+## 如何根据json schema 来render我们的组件（dom）
+1. 借助 React.createElement(),我们可以构造符合业务的 json ，然后通过React.createElement()输出我们想要的dom
+2. 拖拽组件其实本质上我们是在画布上更新 props data , F(json)=>UI 思路就是这样

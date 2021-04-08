@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // 读取同一目录下的 base config
 const path = require('path');
-const config = require('./webpack.config');
+const config = require('./webpack.base.config');
 
 config.mode="development"
 
@@ -23,6 +23,6 @@ config.devServer={
 }
 
 // source-map
-config.devtool="inline-source-map"   // 完整的内联源代码映射。这允许我们在发布之前调试原始代码
+config.devtool="eval-source-map"   // 完整的内联源代码映射。这允许我们在发布之前调试原始代码
 
 module.exports = config

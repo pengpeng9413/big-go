@@ -1,7 +1,7 @@
 import React, { ComponentClass, FunctionComponent } from 'react';
 import { Test,Test1,Test2,Test3 } from './../components-test/index';
-
-
+import {AntdButton,AntdDatePicker,AntdDivider,AntdBreadcrumb,AntdMenu,AntdDropDown,AntdStep} from './../antd';
+// import {AtndButton} from './../antd/button'
 interface schemaData {
      /** 组件或则是html 标签 */
      component:FunctionComponent | ComponentClass | string;
@@ -52,6 +52,11 @@ export const Demo = () => {
         innerText:"我是个html标签，不是组件，看你怎么渲染我"
       }
     ],
+  },{
+    component: AntdButton,
+    props: {
+        key:Symbol(7).toString()
+    }
   }] ;
 
   /**

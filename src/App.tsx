@@ -21,7 +21,7 @@ class App extends React.Component<Props> {
       <BrowserRouter>
        <Switch>
          <Route path="/">
-           {/* <Demo/> */}
+           <Demo/>
            <Layout/>
          </Route>
        </Switch>

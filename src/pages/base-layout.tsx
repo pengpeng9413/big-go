@@ -1,11 +1,13 @@
 /* eslint-disable react/display-name */
 import * as React from 'react';
 import styled from 'styled-components';
+import { ComponentCask } from './components/schma-demo';
 
 const ROOT = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
   .header {
     align-items: center;
     width: 100%;
@@ -34,14 +36,22 @@ const ROOT = styled.div`
   .content {
     flex: 1;
     display: flex;
-    .content-left{
-        width:280px;
+    .content-left {
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      background-color: #e7e1f1;
     }
-    .content-center{
-        flex:1;
+    .content-center {
+      background: -webkit-linear-gradient(top, transparent 35px, #eaeaea 36px),
+        -webkit-linear-gradient(left, transparent 35px, #eaeaea 36px);
+      background-size: 36px 36px;
+      flex: 1;
+      width: 100%;
     }
-    .content-right{
-        width:260px;
+    .content-right {
+      width: 300px;
+      background-color: #e7e1f1;
     }
   }
 `;
@@ -58,8 +68,13 @@ export const Layout = () => {
         <div className='header-right'></div>
       </div>
       <div className='content'>
-        <div className='content-left'>物料中心</div>
+        <div className='content-left'>
+          {/* 物料中心 */}
+          <ComponentCask />
+        </div>
+        {/* 画布 */}
         <div className='content-center'>画布渲染器</div>
+        {/* 配置区域 */}
         <div className='content-right'>配置区域</div>
       </div>
       <div className='footer'></div>

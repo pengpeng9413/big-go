@@ -1,53 +1,40 @@
 import React from 'react';
 import * as Antd from 'antd';
+import {WithWrapperAntd} from './../../high-order-components'
 
 /** 按钮 */
-export const AntdButton = () => {
-  return <Antd.Button>按钮</Antd.Button>;
-};
+export const AntdButton = WithWrapperAntd(() => <Antd.Button type="primary">按钮</Antd.Button>);
 
 /** 时间选择器 */
-export const AntdDatePicker = () => {
-  return <Antd.DatePicker />;
-};
+export const AntdDatePicker =WithWrapperAntd(() => (<Antd.DatePicker />));
 
 /** 分割线 */
-export const AntdDivider = () => {
-  return <Antd.Divider />;
-};
-
-/** 面包屑 */
-export const AntdBreadcrumb = () => {
-  return <Antd.Breadcrumb>面包屑</Antd.Breadcrumb>;
-};
+export const AntdDivider = WithWrapperAntd(() => <Antd.Divider />)
 
 /** 下拉菜单 */
-export const AntdMenu = () => {
-  return (
+export const AntdMenu =WithWrapperAntd(()=>(
     <Antd.Menu>
       <Antd.Menu.Item>列表1</Antd.Menu.Item>
       <Antd.Menu.Item>列表2</Antd.Menu.Item>
       <Antd.Menu.Item>列表3</Antd.Menu.Item>
     </Antd.Menu>
-  );
-};
+  )) 
 
 /** dropDown */
-export const AntdDropDown = () => {
-  return <Antd.Dropdown overlay={AntdMenu}>鼠标进过</Antd.Dropdown>;
-};
+export const DropDown =WithWrapperAntd(() => (<Antd.Dropdown overlay={()=><AntdMenu/>}>鼠标进过</Antd.Dropdown>)) 
 
 /** Step */
-export const AntdStep = () => {
-  return (
+export const AntdStep = WithWrapperAntd (()=>(
     <Antd.Steps current={1}>
-      <Antd.Steps.Step title='Finished' description='This is a description.' />
+      <Antd.Steps.Step title='Finished' description='step 1' />
       <Antd.Steps.Step
         title='In Progress'
-        subTitle='Left 00:00:08'
-        description='This is a description.'
+        description='step 2.'
       />
-      <Antd.Steps.Step title='Waiting' description='This is a description.' />
+      <Antd.Steps.Step title='Waiting' description='step 3' />
     </Antd.Steps>
-  );
-};
+  )) 
+
+
+
+

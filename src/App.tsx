@@ -7,7 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import {Layout} from './pages/base-layout'
-import {Demo} from './pages/components/schma-demo'
+// import {Demo} from './pages/components/schma-demo'
 
 interface Props {
    name:string
@@ -21,7 +21,7 @@ class App extends React.Component<Props> {
       <BrowserRouter>
        <Switch>
          <Route path="/">
-           <Demo/>
+           {/* <Demo/> */}
            <Layout/>
          </Route>
        </Switch>

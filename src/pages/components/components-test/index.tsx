@@ -20,6 +20,10 @@ export const Test2=()=>{
 
 export const Test3=()=>{
     return (
-        <span key="1515">我是子组件3</span>
+        <>
+          <div>{new Intl.DateTimeFormat('en-US').format(new Date)}</div>
+          <span key="1515">我是子组件3</span>
+        </>
+        
     )
 }

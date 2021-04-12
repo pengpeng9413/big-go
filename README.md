@@ -60,3 +60,11 @@ if we use only one ,we should write many `if else` according to the `process env
 ## 如何根据json schema 来render我们的组件（dom）
 1. 借助 React.createElement(),我们可以构造符合业务的 json ，然后通过React.createElement()输出我们想要的dom
 2. 拖拽组件其实本质上我们是在画布上更新 props data , F(json)=>UI 思路就是这样
+
+## 监听键盘事件
+- keymaster []
+
+## 关于画布网格和坐标体系
+- 起初是用css 来搞定的，也就两行代码的事
+- 为了对canvas 有更深入的认识，我决定尝试用canvas画
+- 当然坐标系肯定是用canvas 画的

@@ -65,6 +65,23 @@ if we use only one ,we should write many `if else` according to the `process env
 - keymaster []
 
 ## 关于画布网格和坐标体系
-- 起初是用css 来搞定的，也就两行代码的事
-- 为了对canvas 有更深入的认识，我决定尝试用canvas画
-- 当然坐标系肯定是用canvas 画的
+- 网格先用css实现，至于坐标系我们就只能上canvas了
+- 后期我们可能会上canvas画网格，然后做自动吸附
+
+## 关于使用 React-Resizable , React-Grid-Layout , react-draggable
+- 他们三个库是如何配合，各个库承担着什么角色
+- 1. React-Resizable：React-resizable is a simple component that you wrap your existing components inside. It gives those components resize handles
+     没错,这个家伙就是可以帮助我们改变组件大小的，通过鼠标的拖拉，进行放大缩小，这在可视化搭建是个很常见的需求
+- 2. React-Grid-Layout：网格响应式布局，支持断点布局或者自动生成
+- 3. react-draggable : 拖拽，可以监听到响应事件并执行回调
+- 4. 你可能很奇怪为啥单独把这三兄弟拎出来，因为他们出自同一个organization ![Alt](./src/asset/img/GPL.jpg)
+
+## 关于右键菜单库 react-contexify 
+-[react-contexify](https://github.com/fkhadra/react-contexify)
+
+## 关于键盘快捷键库 - 还在调研中
+
+## 关于物料组件库的设计思路
+之前一直在想，我们直接把组件库往物料区块上放，然后直接将组件放入到画布中，这样很多配置项就不能拿到
+我们把标准化的每一个组件库，配置schema , 通过json schema 拿到相关配置项，进而进入表单渲染
+再将props 注入到组件，然后更新画布渲染。

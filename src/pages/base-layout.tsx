@@ -1,7 +1,10 @@
 /* eslint-disable react/display-name */
 import * as React from 'react';
 import styled from 'styled-components';
-import { ComponentCask } from './components/schma-demo';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { ComponentCask } from '../components/schma-demo';
+import { Dustbin } from '../components/edit-screen/Dustbin'
 
 const ROOT = styled.div`
   width: 100%;
@@ -68,14 +71,16 @@ export const Layout = () => {
         <div className='header-right'></div>
       </div>
       <div className='content'>
-        <div className='content-left'>
-          {/* 物料中心 */}
-          <ComponentCask />
-        </div>
-        {/* 画布 */}
-        <div className='content-center'>画布渲染器</div>
-        {/* 配置区域 */}
-        <div className='content-right'>配置区域</div>
+        <DndProvider backend={HTML5Backend}>
+          <div className='content-left'>
+            {/* 物料中心 */}
+            <ComponentCask />
+          </div>
+            {/* 画布 */}
+          <div className='content-center'><Dustbin/></div>
+            {/* 配置区域 */}
+          <div className='content-right'>配置区域</div>
+        </DndProvider>
       </div>
       <div className='footer'></div>
     </ROOT>

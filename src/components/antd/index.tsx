@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Antd from 'antd';
-import {WithWrapperAntd} from './../../high-order-components'
+import {WithWrapperAntd} from '../../pages/high-order-components'
 
 /** 按钮 */
 export const AntdButton = WithWrapperAntd(() => <Antd.Button type="primary">按钮</Antd.Button>);

@@ -85,3 +85,5 @@ if we use only one ,we should write many `if else` according to the `process env
 之前一直在想，我们直接把组件库往物料区块上放，然后直接将组件放入到画布中，这样很多配置项就不能拿到
 我们把标准化的每一个组件库，配置schema , 通过json schema 拿到相关配置项，进而进入表单渲染
 再将props 注入到组件，然后更新画布渲染。
+
+## 物料库的模版和组件如何映射，这个是问题

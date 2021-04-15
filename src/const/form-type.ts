@@ -3,7 +3,7 @@
 export interface INumberConfigType {
     key: string;
     name: string;
-    type: 'Number';
+    type: 'Number';  // 定义自己的类型
     range?: [number, number];
     step?: number;
   }
@@ -12,7 +12,7 @@ export interface INumberConfigType {
 export interface ITextConfigType {
     key: string;
     name: string;
-    type: 'Text';
+    type: 'Text';  // 定义自己的类型
   }
 
 /** 默认文本 */

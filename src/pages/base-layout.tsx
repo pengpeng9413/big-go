@@ -3,8 +3,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import DragBox from './drag-box';
 import { ComponentCask } from '../components/schma-demo';
-import { Dustbin } from '../components/edit-screen/Dustbin'
+import { Dustbin } from '../components/edit-screen/Dustbin';
+import Tmp from './../materials/media/template';
+import AsyncWrapper from './async-map-component';
 
 const ROOT = styled.div`
   width: 100%;
@@ -44,6 +47,11 @@ const ROOT = styled.div`
       display: flex;
       flex-direction: column;
       background-color: #e7e1f1;
+      .material-title {
+        text-align: center;
+        height: 48px;
+        line-height: 48px;
+      }
     }
     .content-center {
       background: -webkit-linear-gradient(top, transparent 35px, #eaeaea 36px),
@@ -61,6 +69,18 @@ const ROOT = styled.div`
 
 export const Layout = () => {
   const title = 'gago 大屏可视化建站平台';
+
+  // 物料中心
+  const RenderMaterials = () => {
+    return Tmp.map((item, index) => {
+      return (
+        <AsyncWrapper {...item} isTemplate={true} className="material-item" key={item.displayName}/>
+        // <DragBox key={item.displayName}>
+        // </DragBox>
+      );
+    });
+  };
+
   return (
     <ROOT>
       <div className='header'>
@@ -74,10 +94,13 @@ export const Layout = () => {
         <DndProvider backend={HTML5Backend}>
           <div className='content-left'>
             {/* 物料中心 */}
-            <ComponentCask />
+            <div className="material-title">物料中心</div>
+            {RenderMaterials()}
           </div>
             {/* 画布 */}
-          <div className='content-center'><Dustbin/></div>
+          <div className='content-center'>
+            <Dustbin />
+          </div>
             {/* 配置区域 */}
           <div className='content-right'>配置区域</div>
         </DndProvider>

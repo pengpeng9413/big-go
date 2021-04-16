@@ -14,11 +14,13 @@ export interface IEditData {
 }
 
 export interface IButtonSchema {
+    name:string;
     editData:Array<IEditData> ;
     config:IButtonConf
 }
 
 const button:IButtonSchema={
+    name:"button",
     editData:[
         {
             key: 'type',

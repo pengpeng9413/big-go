@@ -5,7 +5,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import DragBox from './drag-box';
 import { ComponentCask } from '../components/schma-demo';
-import { Dustbin } from '../components/edit-screen/Dustbin';
+import { Dustbin } from './Dustbin';
 import Tmp from './../materials/media/template';
 import AsyncWrapper from './async-map-component';
 
@@ -70,13 +70,15 @@ const ROOT = styled.div`
 export const Layout = () => {
   const title = 'gago 大屏可视化建站平台';
 
+  const [dragstate, setDragState] = React.useState({ x: 0, y: 0 });
+
   // 物料中心
   const RenderMaterials = () => {
     return Tmp.map((item, index) => {
       return (
-        <AsyncWrapper {...item} isTemplate={true} className="material-item" key={item.displayName}/>
-        // <DragBox key={item.displayName}>
-        // </DragBox>
+        <DragBox key={item.displayName} item={item} >
+          <AsyncWrapper {...item} isTemplate={true} className="material-item" key={item.displayName}/>
+        </DragBox>
       );
     });
   };
@@ -99,7 +101,7 @@ export const Layout = () => {
           </div>
             {/* 画布 */}
           <div className='content-center'>
-            <Dustbin />
+            <Dustbin  setDragState={setDragState} dragState={dragstate}/>
           </div>
             {/* 配置区域 */}
           <div className='content-right'>配置区域</div>

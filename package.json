@@ -11,7 +11,7 @@
     "build": "webpack --config webpack.config.js",
     "dev": "webpack --config webpack.dev.config.js",
     "test": "jest",
-    "start": "webpack serve --hot --config webpack.dev.config.js",
+    "start": "webpack serve --config webpack.dev.config.js",
     "lint-fix": "eslint '*/**/*.{js,ts,tsx}' --fix"
   },
   "husky": {
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "antd": "^4.15.0",
+    "immutability-helper": "^3.1.1",
     "less-loader": "^8.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",

@@ -1,6 +1,10 @@
-import Audio from './audio/schema'
-import button from './button/schema';
+import Audio, {IAudioSchema}from './audio/schema'
+import Button,{IButtonSchema} from './button/schema';
 
-const schema= {Audio,button}
+interface Ischema {
+    [x:string]:IAudioSchema | IButtonSchema
+}
+
+const schema:Ischema= {audio:Audio,button:Button}
 
 export default schema

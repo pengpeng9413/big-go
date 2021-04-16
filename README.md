@@ -57,6 +57,29 @@ if we use only one ,we should write many `if else` according to the `process env
 1. 首先解释一下 react-dnd 的英文全称：Drag and Drop for React
 2. 这个开源组件可以为我们带来什么，解决什么问题?
 
+```js
+// 用这个库最好先看一下这个库的overview，能够理解overview 所说的 item 和 type 的含义，以及react-dnd 是基于数据对象而不是视图实现拖拽
+// 关于这个useDrag 的hooks,这个hooks 用在被拖拽组件之上
+const [{ isDragging }, dragRef] = useDrag({
+    item: {
+      type: "card",
+    },
+    collect: (monitor) => ({ // 一个收集器，监听你所拖动的组件是拖放中还是释放了
+      isDragging: monitor.isDragging(),
+    }),
+  });
+
+// 关于这个useDrop ,用来支持拖放源放置被拖放组件，放在画布容器上
+const [{ isOver }, dropRef] = useDrop({
+    accept: "card",
+    drop: () => moveCard(), // 拖拽完成触发，这个函数是被包裹组件的外置api 
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  });
+
+```
+
 ## 如何根据json schema 来render我们的组件（dom）
 1. 借助 React.createElement(),我们可以构造符合业务的 json ，然后通过React.createElement()输出我们想要的dom
 2. 拖拽组件其实本质上我们是在画布上更新 props data , F(json)=>UI 思路就是这样
@@ -87,3 +110,6 @@ if we use only one ,we should write many `if else` according to the `process env
 再将props 注入到组件，然后更新画布渲染。
 
 ## 物料库的模版和组件如何映射，这个是问题
+
+## 关于yarn 和 npm 来回切换安装依赖导致yarn start 启动失败的问题
+建议统一用yarn 来安装相关包，否则需要重新 yarn 再启动 

@@ -13,6 +13,8 @@ export interface IAudioConfig {
 }
 
 export interface IAudioSchema {
+  /** 组件唯一的标识 */
+  name:string
   editData: TAudioEditData;
   config: IAudioConfig;
 }
@@ -22,6 +24,7 @@ export interface IAudioSchema {
 // editData 是可编辑的数据属性，都有三个属性：key，name，type
 // config 是可配置项，是做为props 接受的值
 const Audio: IAudioSchema = {
+  name:"audio",
   editData: [
     {
       key: 'height',

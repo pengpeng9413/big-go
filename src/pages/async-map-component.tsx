@@ -13,17 +13,20 @@ const AsyncComponent = React.memo(
         RenderComponent(Component);
       });
     }, [type]);
-   
-    console.log("Component",Component)
-    return (
-      <div style={{ padding: '8px' }}>
+    
+
+    const Rendertor=()=>{
+      return (
         <React.Suspense fallback='loading'>
-          {Component ? (
-            <Component isTemplate={isTemplate} {...rest} />
-          ) : null}
+            {Component ? (
+              <Component isTemplate={isTemplate} {...rest} />
+            ) : null}
         </React.Suspense>
-      </div>
-    );
+      )
+    }
+
+    // 这个8px 在画布中是需要干掉的，后续需要优化
+    return (<div style={{padding:'8px'}}>{Rendertor()}</div>);
   }
 );
 

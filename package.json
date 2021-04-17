@@ -41,6 +41,7 @@
     "react-hot-loader": "^4.13.0",
     "react-resizable": "^1.11.1",
     "react-router-dom": "^5.2.0",
+    "redux-undo": "^1.0.1",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {

@@ -84,9 +84,6 @@ const [{ isOver }, dropRef] = useDrop({
 1. 借助 React.createElement(),我们可以构造符合业务的 json ，然后通过React.createElement()输出我们想要的dom
 2. 拖拽组件其实本质上我们是在画布上更新 props data , F(json)=>UI 思路就是这样
 
-## 监听键盘事件
-- keymaster []
-
 ## 关于画布网格和坐标体系
 - 网格先用css实现，至于坐标系我们就只能上canvas了
 - 后期我们可能会上canvas画网格，然后做自动吸附
@@ -113,3 +110,10 @@ const [{ isOver }, dropRef] = useDrop({
 
 ## 关于yarn 和 npm 来回切换安装依赖导致yarn start 启动失败的问题
 建议统一用yarn 来安装相关包，否则需要重新 yarn 再启动 
+
+## 监听键盘事件
+- keymaster []
+
+## 拖拽引起的撤销和重做的需求
+- 最暴力的方式肯定是命令式的用一个数组存，更优雅的方式是快照式存储用户操作，这里直接用的redux-undo
+- redo 重做; undo 撤销

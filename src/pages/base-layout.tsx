@@ -6,6 +6,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import DragBox from './drag-box';
 import { ComponentCask } from '../components/schma-demo';
 import { Dustbin } from './Dustbin';
+import { StateWithHistory } from 'redux-undo';
 import Tmp from './../materials/media/template';
 import AsyncWrapper from './async-map-component';
 
@@ -22,18 +23,34 @@ const ROOT = styled.div`
     justify-content: flex-start;
     background: #2b3d5fbf;
     .header-left {
-      width: 80px;
+      width: 260px;
       display: flex;
       align-items: center;
       justify-content: center;
       img {
         width: 58px;
       }
+      span {
+        color: white;
+        font-size: 15px;
+      }
     }
     .header-center {
       flex: 1;
-      text-align: center;
+      text-align: left;
       color: white;
+      & .canvas-operate{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        & .operate-item {
+          width: 48px;
+          text-align: center;
+          background: cadetblue;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+      }
     }
     .header-right {
       width: 80px;
@@ -76,8 +93,13 @@ export const Layout = () => {
   const RenderMaterials = () => {
     return Tmp.map((item, index) => {
       return (
-        <DragBox key={item.displayName} item={item} >
-          <AsyncWrapper {...item} isTemplate={true} className="material-item" key={item.displayName}/>
+        <DragBox key={item.displayName} item={item}>
+          <AsyncWrapper
+            {...item}
+            isTemplate={true}
+            className='material-item'
+            key={item.displayName}
+          />
         </DragBox>
       );
     });
@@ -88,22 +110,29 @@ export const Layout = () => {
       <div className='header'>
         <div className='header-left'>
           <img src='./asset/img/logo.jpg' alt='gago-big 可视化大屏搭建平台' />
+          <span className="head-title">{title}</span>
         </div>
-        <div className='header-center'>{title}</div>
+        <div className='header-center'>
+          {/* 画布操作区域 */}
+          <div className="canvas-operate">
+            <div className="operate-item">撤销</div>
+            <div className="operate-item">重做</div>
+          </div>
+        </div>
         <div className='header-right'></div>
       </div>
       <div className='content'>
         <DndProvider backend={HTML5Backend}>
           <div className='content-left'>
             {/* 物料中心 */}
-            <div className="material-title">物料中心</div>
+            <div className='material-title'>物料中心</div>
             {RenderMaterials()}
           </div>
-            {/* 画布 */}
+          {/* 画布 */}
           <div className='content-center'>
-            <Dustbin  setDragState={setDragState} dragState={dragstate}/>
+            <Dustbin setDragState={setDragState} dragState={dragstate} />
           </div>
-            {/* 配置区域 */}
+          {/* 配置区域 */}
           <div className='content-right'>配置区域</div>
         </DndProvider>
       </div>

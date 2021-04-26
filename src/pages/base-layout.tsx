@@ -7,8 +7,10 @@ import DragBox from './drag-box';
 import { ComponentCask } from '../components/schma-demo';
 import { Dustbin } from './Dustbin';
 import { StateWithHistory } from 'redux-undo';
+import produce from 'immer'
 import Tmp from './../materials/media/template';
 import AsyncWrapper from './async-map-component';
+import {ITimeLine} from './../const/time-type'
 
 const ROOT = styled.div`
   width: 100%;
@@ -39,7 +41,7 @@ const ROOT = styled.div`
       flex: 1;
       text-align: left;
       color: white;
-      & .canvas-operate{
+      & .canvas-operate {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
@@ -84,11 +86,37 @@ const ROOT = styled.div`
   }
 `;
 
+
+// 如何存储不同组件的操作,这里我们
+const timeLine:ITimeLine = {
+  past:[],
+  present:[{componentName:null,x:0,y:0}],
+  feature:[]
+};
+
+const reducer= (
+  state:ITimeLine= timeLine,
+  { type, payload }: { type: string; payload: any }
+) => {
+  switch (type) {
+    // 撤销
+    case 'UNDO':
+      return { ...state, ...payload };
+    // 重做
+    case 'RESET':
+      return { ...state, ...payload };
+    default:
+      return state;
+  }
+};
+
 export const Layout = () => {
   const title = 'gago 大屏可视化建站平台';
 
-  const [dragstate, setDragState] = React.useState({ x: 0, y: 0 });
-
+  const [dragstate, setDragState] = React.useState({x:0,y:0});
+  // 记录每个组件的位置
+  const [state, dispatch] = React.useReducer(reducer, timeLine);
+  
   // 物料中心
   const RenderMaterials = () => {
     return Tmp.map((item, index) => {
@@ -110,13 +138,13 @@ export const Layout = () => {
       <div className='header'>
         <div className='header-left'>
           <img src='./asset/img/logo.jpg' alt='gago-big 可视化大屏搭建平台' />
-          <span className="head-title">{title}</span>
+          <span className='head-title'>{title}</span>
         </div>
         <div className='header-center'>
           {/* 画布操作区域 */}
-          <div className="canvas-operate">
-            <div className="operate-item">撤销</div>
-            <div className="operate-item">重做</div>
+          <div className='canvas-operate'>
+            <div className='operate-item'>撤销</div>
+            <div className='operate-item'>重做</div>
           </div>
         </div>
         <div className='header-right'></div>

@@ -7,7 +7,8 @@ import {
   Route,
 } from "react-router-dom";
 import {Layout} from './pages/base-layout'
-// import {Demo} from './pages/components/schma-demo'
+import Demo from './pages/example'
+import Demo1 from './pages/example1'
 
 interface Props {
    name:string
@@ -22,6 +23,7 @@ class App extends React.Component<Props> {
        <Switch>
          <Route path="/">
            {/* <Demo/> */}
+           {/* <Demo1/> */}
            <Layout/>
          </Route>
        </Switch>

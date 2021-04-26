@@ -25,7 +25,9 @@
     ]
   },
   "dependencies": {
+    "@types/lodash": "^4.14.168",
     "antd": "^4.15.0",
+    "immer": "^9.0.1",
     "immutability-helper": "^3.1.1",
     "less-loader": "^8.0.0",
     "lodash": "^4.17.21",
@@ -39,9 +41,12 @@
     "react-draggable": "^4.4.3",
     "react-grid-layout": "^1.2.4",
     "react-hot-loader": "^4.13.0",
+    "react-redux": "^7.2.3",
     "react-resizable": "^1.11.1",
     "react-router-dom": "^5.2.0",
+    "react-slick": "^0.28.1",
     "redux-undo": "^1.0.1",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
@@ -55,6 +60,7 @@
     "@types/react-dom": "^17.0.3",
     "@types/react-grid-layout": "^1.1.1",
     "@types/react-router-dom": "^5.1.7",
+    "@types/react-slick": "^0.23.4",
     "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",

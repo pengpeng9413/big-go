@@ -3,6 +3,7 @@
 const path = require('path');
 const config = require('./webpack.base.config');
 
+
 config.mode="development"
 
 config.output ={

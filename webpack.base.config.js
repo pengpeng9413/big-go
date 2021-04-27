@@ -3,7 +3,7 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const WebpackBar = require('webpackbar');
 
 const baseConfig = {
   entry: [
@@ -88,6 +88,7 @@ const baseConfig = {
     }
   },
   plugins: [
+    new WebpackBar(), // 展示构建进度
     new HtmlWebpackPlugin({  // 这个插件干嘛使用的:这个插件会自动帮我们生成一个新的html,并把相关的js文件,css 文件做插入
       appMountId: 'root',
       filename: 'index.html',

@@ -43,6 +43,7 @@ export const Dustbin = React.memo((props: Props) => {
   const { dragState,setDragState } = props;
 
   const [data,setData]=React.useState<Array<any>>([])
+  
   // 第一个参数为从useDrag 中获取到的，比如这里的item
   const [{ canDrop, isOver, item }, drop] = useDrop(() => ({
     accept: ["button",'audio'],
@@ -59,6 +60,8 @@ export const Dustbin = React.memo((props: Props) => {
     }),
   }));
 
+
+  console.log("dragState",dragState)
 
   return (
     <Draggable

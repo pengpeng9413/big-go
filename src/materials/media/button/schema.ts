@@ -16,7 +16,7 @@ export interface IEditData {
 export interface IButtonSchema {
     name:string;
     editData:Array<IEditData> ;
-    config:IButtonConf
+    config:IButtonConf;
 }
 
 const button:IButtonSchema={

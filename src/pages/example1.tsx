@@ -10,16 +10,16 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   .slider {
-    width: 80%;
+    width: 300px;
     & button {
-      background: black;
+      background: transparent;
     }
     .item {
-      background: red;
+      background: transparent;
       cursor: pointer;
       & img {
-        width: 100%;
-        height: 125px;
+        width: 88px;
+        height: 70px;
       }
       & h3 {
         background: #5f9ea0;
@@ -33,21 +33,37 @@ export const Wrapper = styled.div`
       }
     }
   }
+  .slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #928c8c;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 `;
 
 export const settings = {
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 1,
+      centerPadding: '20px',
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1
 };
 
 export default React.memo(() => {
+
   const [isActive, setIsActive] = React.useState(false);
+
   const handleClick = (e: any) => {
     setIsActive(true);
   };
+
   const imgs: Array<any> = new Array(8);
+
+  
   return (
     <Wrapper>
       <div className='slider'>
@@ -55,7 +71,7 @@ export default React.memo(() => {
           {imgs.fill(9).map((item) => (
             <div className='item' key={item} onClick={handleClick}>
               <img
-                src='http://192.168.100.223:9000/api/v1/gaohui/file/image?id=6084e1f0e4b0e069540c02d0'
+                src='http://39.97.178.20/fileAnnexes/20210709/537fdd17-aa61-4a2a-8702-ddffc6e9a7ad/5c6736ff-0595-4826-9990-7b83c327fa58.jpg'
                 alt=''
               />
             </div>

@@ -20,7 +20,8 @@ config.devServer={
     compress: false, // 是否开启gzip压缩，默认也是false
     port: 4200,  // 这里可以控制端口号
     open: true,  // 是否自动打开
-    hot: true    // 热更新
+    hot: true,    // 热更新
+    // host:'0.0.0.0'
 }
 
 // source-map

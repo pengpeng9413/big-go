@@ -9,6 +9,9 @@ import {
 import {Layout} from './pages/base-layout'
 import Demo from './pages/example'
 import Demo1 from './pages/example1'
+import Demo2 from './pages/example2'
+import Demo3 from './pages/example3'
+import Demo4 from './pages/example4'
 
 interface Props {
    name:string
@@ -22,9 +25,9 @@ class App extends React.Component<Props> {
       <BrowserRouter>
        <Switch>
          <Route path="/">
-           {/* <Demo/> */}
            {/* <Demo1/> */}
-           <Layout/>
+           <Demo4/>
+           {/* <Layout/> */}
          </Route>
        </Switch>
       </BrowserRouter>

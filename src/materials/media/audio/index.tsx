@@ -4,11 +4,6 @@ import ReactAudioPlayer from 'react-audio-player';
 import styled from 'styled-components';
 import { IAudioConfig } from './schema';
 
-const AudioWrapper = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-`;
 /**
  * isTemplate : 是否是模版
  */
@@ -27,17 +22,15 @@ const AudioPlayer = memo((props: Props) => {
           ></img>
         </div>
       ) : (
-        <AudioWrapper>
-          <ReactAudioPlayer
-            src={url}
-            autoPlay={false}
-            controls
-            style={{
-              width: '100%',
-              height: height + 'px',
-            }}
-          />
-        </AudioWrapper>
+        <ReactAudioPlayer
+        src={url}
+        autoPlay={false}
+        controls
+        style={{
+          width: '100%',
+          height: height + 'px',
+        }}
+      />
       )}
     </>
   );

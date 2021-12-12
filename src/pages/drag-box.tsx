@@ -64,7 +64,7 @@ const TargetBox = memo((props: Props) => {
     }),
   });
 
-  const containerStyle = useMemo(
+  const containerStyle = useMemo( // 缓存变量
     () => ({
       opacity: isDragging ? 0.4 : 1,
       cursor: 'move',
